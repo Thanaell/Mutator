@@ -24,3 +24,13 @@ Environment::Environment(int r2, int g2, int b2){
 		b = 255;
 	}
 }
+
+int Environment::getR() {
+	return r;
+}
+int Environment::getG() {
+	return g;
+}
+int Environment::getB() {
+	return b;
+}

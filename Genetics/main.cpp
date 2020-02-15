@@ -1,10 +1,16 @@
 #include "Family.h"
 #include "RGBCreature.h"
+#include <ctime>
+#include <cstdlib>
+
 
 int main() {
+	srand(time(NULL));
 	Environment myEnvironment;
 	Family myFamily(myEnvironment, 10, RGB);
-	std::cout << "family created";
-	myFamily.updateGeneration();
-	std::cout << "family updated";
+	myFamily.toString();
+	for (int i = 0; i < 20; i++) {
+		myFamily.updateGeneration();
+		myFamily.toString();
+	}
 }

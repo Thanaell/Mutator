@@ -9,6 +9,9 @@ public:
 	void mutate() override;
 	bool isAlive() override;
 	virtual RGBCreature* clone();
+	int getR();
+	int getG();
+	int getB();
 private:
 	int r;
 	int g;

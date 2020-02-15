@@ -20,21 +20,44 @@ RGBCreature::RGBCreature(int r2, int g2, int b2, const Environment &env, float m
 		b = 0;
 	}
 }
+
+// gaussiennes autour des couleurs de la créature 
 void RGBCreature::mutate() {
-	std::cout << "an RGBCreature mutated";
+
 }
 
 bool RGBCreature::isAlive() {
-	if (age < 3) {
-		std::cout << "an RGBCreature aged";
-		return true;	
+	// if too old, dies
+	if (age >= 5) {
+		return false;	
 	}
 	else {
-		std::cout << "an RGBCreature died";
-		return false;
+		int diffR = abs(environment.getR() - r);
+		int diffB = abs(environment.getB() - b);
+		int diffG = abs(environment.getG() - g);
+		float deathProba = 100 * (diffB + diffR + diffG);
+		deathProba /= 3.0;
+		deathProba /= 255.0;
+		float tirage = (rand() % 100) +1;
+		if (tirage < deathProba) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 }
 
 RGBCreature* RGBCreature::clone() {
 	return new RGBCreature(*this);
+}
+
+int RGBCreature::getR() {
+	return r;
+}
+int RGBCreature::getG() {
+	return g;
+}
+int RGBCreature::getB() {
+	return b;
 }

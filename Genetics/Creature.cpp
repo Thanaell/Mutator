@@ -5,7 +5,6 @@ Creature::Creature(const Environment& env, float mutProba) : environment(env), a
 }
 
 void Creature::mutate() {
-	std::cout << "a unknown creature mutated PANIC";
 }
 
 bool Creature::isAlive() {

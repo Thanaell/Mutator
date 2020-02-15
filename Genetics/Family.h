@@ -10,6 +10,8 @@ public:
 	Family(const Environment &env, int nbCreatures, TypeCreature type);
 	void addNewCreature(const Environment& env, TypeCreature type);
 	void updateGeneration();
+	void toString();
+
 private:
 	int generation;
 	std::vector<std::unique_ptr<Creature>> creatures;
