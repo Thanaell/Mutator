@@ -35,11 +35,18 @@ void Family::updateGeneration() {
 			it++;
 		}
 	}
-	//mutation puis reproduction des survivants
-	//TODO : reproduire seulement un certain nombre de créatures choisies aléatoirement parmi les survivants
+	//mutation des survivants
 	for (auto it = creatures.begin(); it != creatures.end(); it++) {
 		it->get()->mutate();
+	}
+	//puis reproduction d'une partie des survivants
+	std::random_shuffle(creatures.begin(), creatures.end());
+	int nbRepro(creatures.size());
+	auto it = creatures.begin();
+	while (nbRepro < nbMaxCreatures && it != creatures.end()) {
 		temp.push_back(it->get()->reproduce());
+		it++;
+		nbRepro++;
 	}
 	//ajout des nouvelles créatures à la famille
 	for (auto it : temp) {

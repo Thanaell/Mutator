@@ -1,4 +1,6 @@
 #include "RGBCreature.h"
+#include <random>
+#include <algorithm>
 
 RGBCreature::RGBCreature(int r2, int g2, int b2, const Environment &env, float mutProba): Creature(env, mutProba) {
 	if (r2 >= 0 && r2 <= 255) {
@@ -23,15 +25,26 @@ RGBCreature::RGBCreature(int r2, int g2, int b2, const Environment &env, float m
 
 // gaussiennes autour des couleurs de la créature 
 void RGBCreature::mutate() {
-
+	std::random_device rd{};
+	std::mt19937 gen{ rd() };
+	//std::cout << r << " " << g << " " << b << " ";
+	std::normal_distribution<> dr{double(r),5.0 };
+	std::normal_distribution<> dg{double(g),5.0 };
+	std::normal_distribution<> db{double(b),5.0 };
+	r = std::max(0.0, std::min(dr(gen), 255.0));
+	g = std::max(0.0, std::min(dg(gen), 255.0));
+	b = std::max(0.0, std::min(db(gen), 255.0));
+	//std::cout << r << " " << g << " " << b << " "<<std::endl;
+	
 }
 
 bool RGBCreature::isAlive() {
 	// if too old, dies
-	if (age >= 5) {
+	if (age >= 2) {
 		return false;	
 	}
 	else {
+		//TODO: deathProba non linéaire
 		int diffR = abs(environment.getR() - r);
 		int diffB = abs(environment.getB() - b);
 		int diffG = abs(environment.getG() - g);

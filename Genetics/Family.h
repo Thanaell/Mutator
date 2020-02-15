@@ -3,6 +3,7 @@
 #include <memory>
 #include "Creature.h"
 #include "TypeCreature.h"
+#include <algorithm>
 
 class Family
 {
@@ -13,6 +14,7 @@ public:
 	void toString();
 
 private:
+	const int nbMaxCreatures = 100;
 	int generation;
 	std::vector<std::unique_ptr<Creature>> creatures;
 
