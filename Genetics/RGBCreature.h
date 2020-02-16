@@ -12,6 +12,7 @@ public:
 	int getR();
 	int getG();
 	int getB();
+	double myDeathFunction(double x);
 private:
 	int r;
 	int g;

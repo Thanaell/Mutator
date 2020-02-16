@@ -14,7 +14,7 @@ public:
 	void toString();
 
 private:
-	const int nbMaxCreatures = 100;
+	const int nbMaxCreatures = 500;
 	int generation;
 	std::vector<std::unique_ptr<Creature>> creatures;
 

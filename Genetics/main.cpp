@@ -10,10 +10,12 @@ int main() {
 	std::random_device rd{};
 	std::mt19937 gen{rd()};
 	Environment myEnvironment;
-	Family myFamily(myEnvironment, 10, RGB);
+	Family myFamily(myEnvironment, 50, RGB);
 	myFamily.toString();
-	for (int i = 0; i < 1000; i++) {
+	for (int i = 1; i <= 500; i++) {
 		myFamily.updateGeneration();
+		if (i % 10 == 0) {
+			myFamily.toString();
+		}
 	}
-	myFamily.toString();
 }

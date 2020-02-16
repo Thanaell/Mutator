@@ -14,10 +14,10 @@ void Family::addNewCreature(const Environment& env, TypeCreature type) {
 	
 	switch (type) {
 	case RGB:
-		myCreature = new RGBCreature((rand() % 255) + 1, (rand() % 255) + 1, (rand() % 255) + 1, env, 0);
+		myCreature = new RGBCreature((rand() % 255) + 1, (rand() % 255) + 1, (rand() % 255) + 1, env, 0.1);
 		break;
 	default:
-		myCreature = new RGBCreature((rand() % 255) + 1, (rand() % 255) + 1, (rand() % 255) + 1, env, 0);
+		myCreature = new RGBCreature((rand() % 255) + 1, (rand() % 255) + 1, (rand() % 255) + 1, env, 0.1);
 		break;
 	}
 	creatures.push_back(std::unique_ptr<Creature>(myCreature));

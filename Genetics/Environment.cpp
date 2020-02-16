@@ -1,6 +1,6 @@
 #include "Environment.h"
 
-Environment::Environment() :r(255), g(255), b(255) {
+Environment::Environment() :r(255), g(0), b(0) {
 
 }
 
