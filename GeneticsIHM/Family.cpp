@@ -1,6 +1,7 @@
 #include "Family.h"
 #include "RGBCreature.h"
 #include <memory>
+#include <string>
 
 Family::Family(const Environment& env, int nbCreatures, TypeCreature baseType): generation(0) {
 	for (int i = 0; i < nbCreatures; i++) {
@@ -54,7 +55,8 @@ void Family::updateGeneration() {
 	}
 }
 
-void Family::toString() {
+std::string Family::toString() {
+	std::string myString = "";
 	int nombreRGB(0);
 	int averageR(0);
 	int averageG(0);
@@ -73,5 +75,7 @@ void Family::toString() {
 		averageG /= nombreRGB;
 		averageB /= nombreRGB;
 	}
-	std::cout << "Generation : " << generation << " , Pop totale : "<< creatures.size() << " Population de couleur : " << nombreRGB << " , Average color : " << averageR <<" " <<averageG<<" " <<averageB << std::endl;
+	myString= "Generation : " + std::to_string(generation)+ " , Pop totale : " + std::to_string(creatures.size()) + " Population de couleur : " + std::to_string(nombreRGB) + " , Average color : " + std::to_string(averageR) +" " + std::to_string(averageG)+" " + std::to_string(averageB) + "\n";
+	return myString;
 }
+

@@ -11,7 +11,7 @@ public:
 	Family(const Environment &env, int nbCreatures, TypeCreature type);
 	void addNewCreature(const Environment& env, TypeCreature type);
 	void updateGeneration();
-	void toString();
+	std::string toString();
 
 private:
 	const int nbMaxCreatures = 500;
