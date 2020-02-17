@@ -84,8 +84,11 @@
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Family.cpp" />
     <ClCompile Include="GeneticsIHM.cpp" />
+    <ClCompile Include="ImmortalCreature.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MovingRGBCreature.cpp" />
     <ClCompile Include="RGBCreature.cpp" />
+    <ClCompile Include="StaticRGBCreature.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="GeneticsIHM.h" />
@@ -100,7 +103,10 @@
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Family.h" />
+    <ClInclude Include="ImmortalCreature.h" />
+    <ClInclude Include="MovingRGBCreature.h" />
     <ClInclude Include="RGBCreature.h" />
+    <ClInclude Include="StaticRGBCreature.h" />
     <ClInclude Include="TypeCreature.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

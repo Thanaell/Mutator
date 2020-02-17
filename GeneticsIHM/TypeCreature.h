@@ -1,5 +1,7 @@
 #pragma once
 enum TypeCreature
 {
-	RGB
+	StaticRGB,
+	MovingRGB,
+	Immortal
 };

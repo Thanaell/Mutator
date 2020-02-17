@@ -14,9 +14,17 @@ int main(int argc, char *argv[])
 	std::random_device rd{};
 	std::mt19937 gen{ rd() };
 	Environment myEnvironment;
-	Family myFamily(myEnvironment, 50, RGB);
+	std::vector<std::pair<TypeCreature, int>> pairesTypesNb;
+	std::pair<TypeCreature, int> immortals(Immortal,2 );
+	std::pair<TypeCreature, int> moving(MovingRGB,3);
+	std::pair<TypeCreature, int> statics(StaticRGB,50);
+	pairesTypesNb.push_back(immortals);
+	pairesTypesNb.push_back(moving);
+	pairesTypesNb.push_back(statics);
+	Family myFamily(myEnvironment, pairesTypesNb);
+
 	myString+=myFamily.toString();
-	for (int i = 1; i <= 200; i++) {
+	for (int i = 1; i <= 500; i++) {
 		myFamily.updateGeneration();
 		if (i % 10 == 0) {
 			myString+=myFamily.toString();
@@ -24,7 +32,7 @@ int main(int argc, char *argv[])
 	}
 	QApplication a(argc, argv);
 	GeneticsIHM w;
-	w.setLabelText(myString);
+	w.setBrowserText(myString);
 	w.show();
 	return a.exec();
 }

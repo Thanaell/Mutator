@@ -6,14 +6,14 @@ class RGBCreature :
 {
 public:
 	RGBCreature(int r2, int g2, int b2, const Environment& env, float mutProba);
-	void mutate() override;
-	bool isAlive() override;
-	virtual RGBCreature* clone();
+	virtual void mutate() override = 0;
+	virtual bool isAlive() override = 0;
+	virtual RGBCreature* clone() = 0;
 	int getR();
 	int getG();
 	int getB();
-	double myDeathFunction(double x);
-private:
+	virtual double myDeathFunction(double x) = 0;
+protected:
 	int r;
 	int g;
 	int b;

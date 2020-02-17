@@ -9,7 +9,7 @@ class GeneticsIHM : public QMainWindow
 
 public:
 	GeneticsIHM(QWidget *parent = Q_NULLPTR);
-	void setLabelText(std::string myString);
+	void setBrowserText(std::string myString);
 private:
-	Ui::GeneticsIHMClass ui;
+	Ui::MainWindow ui;
 };

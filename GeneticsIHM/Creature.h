@@ -7,6 +7,7 @@ protected:
 	int age;
 	Environment environment;
 	float mutationProba;
+	float reproProba;
 public:
 	Creature(const Environment& environment, float mutProba);
 	virtual void mutate();
@@ -14,5 +15,6 @@ public:
 	bool update();
 	virtual Creature* reproduce();
 	virtual Creature* clone() = 0;
+	float getReproProba();
 };
 

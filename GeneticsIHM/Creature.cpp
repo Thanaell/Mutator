@@ -1,6 +1,6 @@
 #include "Creature.h"
 
-Creature::Creature(const Environment& env, float mutProba) : environment(env), age(0), mutationProba(mutProba) {
+Creature::Creature(const Environment& env, float mutProba) : environment(env), age(0), mutationProba(mutProba), reproProba(0) {
 
 }
 
@@ -9,6 +9,10 @@ void Creature::mutate() {
 
 bool Creature::isAlive() {
 	return true;
+}
+
+float Creature::getReproProba() {
+	return reproProba;
 }
 
 bool Creature::update() {
