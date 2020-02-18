@@ -137,7 +137,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="ExactValueSlider"/>
+                 <widget class="QLineEdit" name="ExactValueText"/>
                 </item>
                </layout>
               </widget>

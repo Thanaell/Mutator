@@ -26,13 +26,14 @@ int main(int argc, char *argv[])
 	Storage myStorage;
 	myStorage.addFamily(myFamily);
 
-	for (int i = 1; i <= 50; i++) {
-		myFamily.updateGeneration();
-		myStorage.addFamily(myFamily);
-	}
 	QApplication a(argc, argv);
-	GeneticsIHM w;
-	w.setBrowserText(myStorage.toString(50));
+	GeneticsIHM w(myStorage);
+
+	for (int i = 1; i <= 200; i++) {
+		myFamily.updateGeneration();
+		w.addFamily(myFamily);
+	}
+	
 	w.show();
 	return a.exec();
 }
