@@ -3,6 +3,7 @@
 #include <qmessagebox.h>
 #include "Family.h"
 #include "RGBCreature.h"
+#include "Storage.h"
 #include <ctime>
 #include <cstdlib>
 #include <random>
@@ -22,17 +23,16 @@ int main(int argc, char *argv[])
 	pairesTypesNb.push_back(moving);
 	pairesTypesNb.push_back(statics);
 	Family myFamily(myEnvironment, pairesTypesNb);
+	Storage myStorage;
+	myStorage.addFamily(myFamily);
 
-	myString+=myFamily.toString();
-	for (int i = 1; i <= 500; i++) {
+	for (int i = 1; i <= 50; i++) {
 		myFamily.updateGeneration();
-		if (i % 10 == 0) {
-			myString+=myFamily.toString();
-		}
+		myStorage.addFamily(myFamily);
 	}
 	QApplication a(argc, argv);
 	GeneticsIHM w;
-	w.setBrowserText(myString);
+	w.setBrowserText(myStorage.toString(50));
 	w.show();
 	return a.exec();
 }

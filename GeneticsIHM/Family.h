@@ -13,6 +13,11 @@ public:
 	void addNewCreature(const Environment& env, TypeCreature type);
 	void updateGeneration();
 	std::string toString();
+	~Family();
+	Family(Family const& other);
+	Family(Family && other) = default;
+	Family& operator=(Family const& other);
+	Family& operator=(Family && other) = default;
 
 private:
 	const int nbMaxCreatures = 500;

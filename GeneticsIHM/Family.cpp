@@ -69,6 +69,22 @@ void Family::updateGeneration() {
 	}
 }
 
+// Règle des 5
+Family::~Family() = default;
+
+Family::Family(Family const& other) {
+	for (auto& it : other.creatures) {
+		creatures.push_back(std::unique_ptr<Creature>(it->clone()));
+	}
+}
+
+Family& Family::operator=(Family const& other) {
+	for (auto& it : other.creatures) {
+		creatures.push_back(std::unique_ptr<Creature>(it->clone()));
+	}
+	return *this;
+}
+
 std::string Family::toString() {
 	std::string myString = "";
 	int nombreImmortals(0);
@@ -97,7 +113,7 @@ std::string Family::toString() {
 		averageG /= nombreStatic;
 		averageB /= nombreStatic;
 	}
-	myString = "Generation : " + std::to_string(generation) + " , Pop totale : " + std::to_string(creatures.size()) + "\n";
+	myString = "Total population: " + std::to_string(creatures.size()) + "\n";
 	myString+= "Static RGB : " + std::to_string(nombreStatic) + " , Average color : " + std::to_string(averageR) +" " + std::to_string(averageG)+" " + std::to_string(averageB) + "\n";
 	myString += "Moving RGB : " + std::to_string(nombreMoving) + "\n";
 	myString += "Immortals : " + std::to_string(nombreImmortals) + "\n\n";
