@@ -3,18 +3,22 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_GeneticsIHM.h"
 #include "Storage.h"
+#include "Simulation.h"
 
 class GeneticsIHM : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	GeneticsIHM(Storage& store, QWidget* parent = Q_NULLPTR);
-	void setBrowserText(std::string myString);
-	void addFamily(Family family);
+	GeneticsIHM(QWidget* parent = Q_NULLPTR);
 public slots:
 	void updateTextBrowser(int gen);
+	void runSimulation();
+	void loadConfig();
+	void loadEnvironment();
 private:
-	Storage& storage;
+	Environment env;
+	Config conf;
 	Ui::MainWindow ui;
+	Simulation simu;
 };

@@ -12,28 +12,8 @@ int main(int argc, char *argv[])
 {
 	std::string myString = "";
 	srand(time(NULL));
-	std::random_device rd{};
-	std::mt19937 gen{ rd() };
-	Environment myEnvironment;
-	std::vector<std::pair<TypeCreature, int>> pairesTypesNb;
-	std::pair<TypeCreature, int> immortals(Immortal,2 );
-	std::pair<TypeCreature, int> moving(MovingRGB,3);
-	std::pair<TypeCreature, int> statics(StaticRGB,50);
-	pairesTypesNb.push_back(immortals);
-	pairesTypesNb.push_back(moving);
-	pairesTypesNb.push_back(statics);
-	Family myFamily(myEnvironment, pairesTypesNb);
-	Storage myStorage;
-	myStorage.addFamily(myFamily);
-
 	QApplication a(argc, argv);
-	GeneticsIHM w(myStorage);
-
-	for (int i = 1; i <= 200; i++) {
-		myFamily.updateGeneration();
-		w.addFamily(myFamily);
-	}
-	
+	GeneticsIHM w;
 	w.show();
 	return a.exec();
 }

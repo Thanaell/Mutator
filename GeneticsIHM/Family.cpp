@@ -7,6 +7,9 @@
 #include <memory>
 #include <string>
 
+Family::Family(): generation(0) {
+}
+
 Family::Family(const Environment& env, std::vector<std::pair<TypeCreature, int>> pairesTypeCreatures): generation(0) {
 	int nb = 0;
 	for (const auto &it : pairesTypeCreatures){

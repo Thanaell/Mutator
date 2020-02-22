@@ -88,6 +88,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovingRGBCreature.cpp" />
     <ClCompile Include="RGBCreature.cpp" />
+    <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="StaticRGBCreature.cpp" />
     <ClCompile Include="Storage.cpp" />
   </ItemGroup>
@@ -107,6 +108,7 @@
     <ClInclude Include="ImmortalCreature.h" />
     <ClInclude Include="MovingRGBCreature.h" />
     <ClInclude Include="RGBCreature.h" />
+    <ClInclude Include="Simulation.h" />
     <ClInclude Include="StaticRGBCreature.h" />
     <ClInclude Include="Storage.h" />
     <ClInclude Include="TypeCreature.h" />

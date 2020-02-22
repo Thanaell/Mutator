@@ -8,7 +8,7 @@
 class Family
 {
 public:
-	
+	Family();
 	Family(const Environment &env, std::vector<std::pair<TypeCreature, int>> pairesTypeCreatures);
 	void addNewCreature(const Environment& env, TypeCreature type);
 	void updateGeneration();

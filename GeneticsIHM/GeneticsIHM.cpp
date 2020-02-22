@@ -1,21 +1,34 @@
 #include "GeneticsIHM.h"
+#include "Environment.h"
 
-GeneticsIHM::GeneticsIHM(Storage& store, QWidget* parent) : QMainWindow(parent), storage(store)
+GeneticsIHM::GeneticsIHM(QWidget* parent) : QMainWindow(parent)
 {
 	ui.setupUi(this);
 	ui.GenerationSlider->setMinimum(0);
-	ui.GenerationSlider->setMaximum(200);
+	ui.GenerationSlider->setMaximum(0);
 	QObject::connect(ui.GenerationSlider, SIGNAL(valueChanged(int)), this, SLOT(updateTextBrowser(int)));
+	QObject::connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(runSimulation()));
 }
 
-void GeneticsIHM::addFamily(Family family) {
-	storage.addFamily(family);
+void GeneticsIHM::runSimulation() {
+	loadEnvironment();
+	loadConfig();
+	simu.setEnv(env);
+	simu.setConf(conf);
+	simu.setUp();
+	//TODO: setup slider
+	ui.GenerationSlider->setMaximum(200);
+	simu.run();
 }
 
-void GeneticsIHM::setBrowserText(std::string myString) {
-	ui.textBrowser->setText(QString::fromStdString(myString));
+void GeneticsIHM::loadConfig() {
+	
+}
+
+void GeneticsIHM::loadEnvironment() {
+
 }
 
 void GeneticsIHM::updateTextBrowser(int gen) {
-	ui.textBrowser->setText(QString::fromStdString(storage.toString(gen)));
+	ui.textBrowser->setText(QString::fromStdString(simu.getStorage().toString(gen)));
 }
